@@ -7,13 +7,13 @@ import {
 import { getMessaging } from "firebase/messaging";
 
 const firebaseConfig = {
-  apiKey: "AIzaSyC8mgiDaJZJJDe9XC8Zvbz0bA-d_8tTXAE",
-  authDomain: "first-demo-b8d2e.firebaseapp.com",
-  databaseURL: "https://first-demo-b8d2e-default-rtdb.firebaseio.com",
-  projectId: "first-demo-b8d2e",
-  storageBucket: "first-demo-b8d2e.appspot.com",
-  messagingSenderId: "977137625962",
-  appId: "1:977137625962:web:f129fb7a589df60f365313",
+  apiKey: "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+  authDomain: "xxxxxxxxxxxxxxxxxxxxxxxxxx",
+  databaseURL: "xxxxxxxxxxxxxxxxxxxxx",
+  projectId: "xxxxxxxxxxxxxxxxxxxx",
+  storageBucket: "xxxxxxxxxxxxxxxxxxxxxxxxxxx",
+  messagingSenderId: "xxxxxxxxxxxxxxxxxxxxxxxxxxx",
+  appId: "xxxxxxxxxxxxxxxxxxxxxxxxxxx",
 };
 
 const app = !getApps().length ? initializeApp(firebaseConfig) : getApp();
