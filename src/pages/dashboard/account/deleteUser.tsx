@@ -1,6 +1,6 @@
 import { useState } from "react";
 import Button from "../../../components/Button";
-// import Modal from "../../../components/Modal";
+import Modal from "../../../components/Modal";
 import Input from "../../../components/Input";
 import { useNavigate } from "react-router-dom";
 import { auth } from "../../../firebase/config";
@@ -34,7 +34,7 @@ const DeleteUser = () => {
               handleClick={() => setOpen(!open)}
             />
           </div>
-          {/* <Modal open={open} onClose={() => setOpen(false)}>
+          <Modal open={open} onClose={() => setOpen(false)}>
             {isEmailUser && (
               <div className="flex flex-col gap-4 mt-5">
                 <Input
@@ -61,7 +61,7 @@ const DeleteUser = () => {
                 />
               </div>
             )}
-          </Modal> */}
+          </Modal>
         </div>
       </div>
     </div>

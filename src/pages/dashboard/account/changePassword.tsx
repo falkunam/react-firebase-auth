@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import Button from "../../../components/Button";
-// import Modal from "../../../components/Modal";
+import Modal from "../../../components/Modal";
 import Input from "../../../components/Input";
 import { updateUserPassword } from "../../../firebase/authetication/passwordAuth";
 
@@ -28,17 +28,17 @@ const ChangePassword = () => {
               handleClick={() => setOpen(!open)}
             />
           </div>
-          {/* <Modal open={open} onClose={() => setOpen(false)}>
+          <Modal open={open} onClose={() => setOpen(false)}>
             <div className="flex flex-col gap-4 mt-5">
               <Input
                 label="Current Password"
-                name="current-password"
+                name="password"
                 value={currentPassword}
                 onChange={setCurrentPassword}
               />
               <Input
                 label="New Password"
-                name="new-password"
+                name="password"
                 value={newPassword}
                 onChange={setNewPassword}
               />
@@ -50,7 +50,7 @@ const ChangePassword = () => {
                 }
               />
             </div>
-          </Modal> */}
+          </Modal>
         </div>
       </div>
     </div>

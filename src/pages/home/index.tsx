@@ -127,6 +127,34 @@ const Home = () => {
             icon={<FaGithub size={20} />}
           />
 
+          <Link
+            className="w-full p-3 mt-3 flex justify-center items-center gap-2 rounded text-white bg-[#34C759]"
+            to="/phone-auth"
+          >
+            <FaPhone size={20} /> Sign In with Phone Number
+          </Link>
+
+          <Button
+            bgColor="bg-[#dadcd3]"
+            textColor="black"
+            text="Sign In Anonymously"
+            onClick={() => handleSignInAnonymously(navigate)}
+            icon={<FaPersonCircleQuestion size={20} />}
+          />
+
+          <Button
+            bgColor="bg-[#fff]"
+            textColor="black"
+            text="Custom Authentication"
+            onClick={() =>
+              signInWithCustomToken(
+                auth,
+                "34dsfg434u3589fvdjutifdvjk6th7ijuy87j"
+              )
+            }
+            icon={<FaPersonCircleQuestion size={20} />}
+          />
+
           <Button
             bgColor="bg-[#000]"
             textColor="white"
@@ -157,12 +185,11 @@ const Home = () => {
             icon={<FaYahoo size={20} />}
           />
 
-          <Button
+          {/* <Button
             bgColor="bg-[#4F8CCB]"
             textColor="white"
             text="Sign In with OpenID Connect"
-            // onClick={() => handleSignInWithSdk(new OAuthProvider("oidc"))}
-            onClick={() => null()}
+            onClick={() => loginWithProvider(navigate, new OAuthProvider("oidc"))}
             icon={<FaOpenid size={20} />}
           />
 
@@ -170,38 +197,9 @@ const Home = () => {
             bgColor="bg-[#0099CC]"
             textColor="white"
             text="Sign In with SAML"
-            // onClick={() => handleSignInWithSdk(new SAMLAuthProvider())}
-            onClick={() => null()}
+            onClick={() => loginWithProvider(navigate, new SAMLAuthProvider())}
             icon={<FcGoogle size={20} />}
-          />
-
-          <Link
-            className="w-full p-3 mt-3 flex justify-center items-center gap-2 rounded text-white bg-[#34C759]"
-            to="/phone-auth"
-          >
-            <FaPhone size={20} /> Sign In with Phone Number
-          </Link>
-
-          <Button
-            bgColor="bg-[#dadcd3]"
-            textColor="black"
-            text="Sign In Anonymously"
-            onClick={() => handleSignInAnonymously(navigate)}
-            icon={<FaPersonCircleQuestion size={20} />}
-          />
-
-          <Button
-            bgColor="bg-[#fff]"
-            textColor="black"
-            text="Custom Authentication"
-            onClick={() =>
-              signInWithCustomToken(
-                auth,
-                "34dsfg434u3589fvdjutifdvjk6th7ijuy87j"
-              )
-            }
-            icon={<FaPersonCircleQuestion size={20} />}
-          />
+          /> */}
         </div>
       </div>
     </>

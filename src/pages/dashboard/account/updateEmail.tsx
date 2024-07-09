@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { User } from "firebase/auth";
 import Button from "../../../components/Button";
-// import Modal from "../../../components/Modal";
+import Modal from "../../../components/Modal";
 import Input from "../../../components/Input";
 import { updateUserEmail } from "../../../firebase/authetication/emailAuth";
 
@@ -32,7 +32,7 @@ const UpdateEmail: React.FC<UpdateEmailProps> = ({ user }) => {
               handleClick={() => setOpen(!open)}
             />
           </div>
-          {/* <Modal open={open} onClose={() => setOpen(false)}>
+          <Modal open={open} onClose={() => setOpen(false)}>
             <div className="flex flex-col gap-4 mt-5">
               <Input
                 label="Current Email address"
@@ -58,7 +58,7 @@ const UpdateEmail: React.FC<UpdateEmailProps> = ({ user }) => {
                 handleClick={() => updateUserEmail(email, newEmail, password)}
               />
             </div>
-          </Modal> */}
+          </Modal>
         </div>
       </div>
     </div>

@@ -16,12 +16,12 @@ function App() {
   return (
     <>
       <Routes>
-        <Route path="/" element={<NonUser><Home /></NonUser>} />
-        <Route path="/sign-in" element={<NonUser><SignIn /></NonUser>} />
-        <Route path="/sign-up" element={<NonUser><SignUp /></NonUser>} />
-        <Route path="/email-sign-in" element={<NonUser><EmailSignIn /></NonUser>} />
-        <Route path="/forgot-password" element={<NonUser><ForgotPassword /></NonUser>} />
-        <Route path="/phone-auth" element={<NonUser><PhoneNumber /></NonUser>} />
+        <Route path="/" element={<Home />} />
+        <Route path="/sign-in" element={<SignIn />} />
+        <Route path="/sign-up" element={<SignUp />} />
+        <Route path="/email-sign-in" element={<EmailSignIn />} />
+        <Route path="/forgot-password" element={<ForgotPassword />} />
+        <Route path="/phone-auth" element={<PhoneNumber />} />
         <Route path="/document" element={<Document/>} />
         <Route
           path="/dashboard"
