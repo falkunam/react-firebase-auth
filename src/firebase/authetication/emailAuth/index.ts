@@ -35,7 +35,7 @@ export const registerUser = async (
     alert(
       `A verification email has been sent to your email address ${name}!. Please verify your email to login.`
     );
-    navigate("/sign-in");
+    navigate("/dashboard");
   } catch (error) {
     if (error instanceof FirebaseError) {
       firebaseAuthErrorMessage(error);
@@ -56,10 +56,10 @@ export const loginUserWithEmailAndPassword = async (
       password
     );
     const results = userCredential.user;
-    if (results.emailVerified === false) {
-      toast.error("Please verify your email to login.");
-      return;
-    }
+    // if (results.emailVerified === false) {
+    //   toast.error("Please verify your email to login.");
+    //   return;
+    // }
     navigate("/dashboard");
   } catch (error) {
     if (error instanceof FirebaseError) {

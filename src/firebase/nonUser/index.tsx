@@ -18,22 +18,19 @@ const NonUser: React.FC<NonUserProps> = ({ children }) => {
     );
   }
 
-  if (user) {
-    const isPasswordProvider = user.providerData.some(
-      (provider) => provider.providerId === "password"
-    );
+  // if (user) {
+  //   const isPasswordProvider = user.providerData.some(
+  //     (provider) => provider.providerId === "password"
+  //   );
 
-    if (isPasswordProvider && !user.emailVerified) {
-      console.log('User email not verified');
-      return <Navigate to="/sign-in" />;
-    }
+  //   if (isPasswordProvider && !user.emailVerified) {
+  //     console.log('User email not verified');
+  //     return <Navigate to="/sign-in" />;
+  //   }
+  //   return <Navigate to="/dashboard" />;
+  // }
 
-    console.log('User authenticated and email verified');
-    return <Navigate to="/dashboard" />;
-  }
-
-  console.log('No user, rendering children');
-  return <>{children}</>;
+  return !user ? <>{children}</> : <Navigate to="/dashboard" />;
 };
 
 export default NonUser;

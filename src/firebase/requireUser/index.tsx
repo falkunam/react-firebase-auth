@@ -16,7 +16,7 @@ const RequireUser: React.FC<RequireUserProps> = ({ children }) => {
       </div>
     );
 
-  if (!user || user === null) return <Navigate to={"/sign-in"} />;
+  if (!user || user === null) return <Navigate to={"/"} />;
   return children;
 };
 
