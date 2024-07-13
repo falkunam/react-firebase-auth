@@ -55,7 +55,7 @@ const UpdateEmail: React.FC<UpdateEmailProps> = ({ user }) => {
               <Button
                 text="Update Email"
                 type="button"
-                handleClick={() => updateUserEmail(email, newEmail, password)}
+                handleClick={() => updateUserEmail(email, newEmail, password, setOpen)}
               />
             </div>
           </Modal>

@@ -72,7 +72,8 @@ export const loginUserWithEmailAndPassword = async (
 export const updateUserEmail = async (
   email: string,
   newEmail: string,
-  password: string
+  password: string,
+  setOpen: (value: boolean) => void
 ) => {
   try {
     if (auth.currentUser === null) return;
@@ -83,7 +84,8 @@ export const updateUserEmail = async (
 
     // Update the email after successful reauthenticate
     await updateEmail(auth.currentUser, newEmail);
-
+    toast.success('Email update succesfully');
+    setOpen(false);
     await sendEmailVerification(auth.currentUser);
     alert(
       `A verification email has been sent to your new email address ${newEmail}!. Please verify your email to login.`

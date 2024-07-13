@@ -46,7 +46,7 @@ const DeleteUser = () => {
                 <Button
                   text="Confirm delete"
                   type="button"
-                  handleClick={() => deleteUserAccount(navigate, true, false)}
+                  handleClick={() => deleteUserAccount(navigate, true, false, password)}
                 />
               </div>
             )}

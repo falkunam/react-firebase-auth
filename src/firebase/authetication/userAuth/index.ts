@@ -40,6 +40,7 @@ export const deleteUserAccount = async (
       await reauthenticateWithCredential(user, credential);
       await deleteUser(user);
       navigate("/");
+      toast.success("Successfully delete user.");
     }
   } catch (error) {
     if (error instanceof FirebaseError) {
