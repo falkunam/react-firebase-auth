@@ -1,6 +1,7 @@
 import { FirebaseError } from "firebase/app";
 import {
   EmailAuthProvider,
+  GithubAuthProvider,
   GoogleAuthProvider,
   deleteUser,
   reauthenticateWithCredential,
@@ -14,23 +15,35 @@ import { firebaseAuthErrorMessage } from "../../errorHandler";
 
 export const deleteUserAccount = async (
   navigate: NavigateFunction,
-  isEmailUser: boolean,
-  isGoogleUser: boolean,
+  providerId: string,
   password?: string
 ) => {
   const user = auth?.currentUser;
   if (!user || user === null) return;
+
   try {
-    // handle google user
-    if (isGoogleUser) {
+    // Handle Google user
+    if (providerId === "google.com") {
       const googleProvider = new GoogleAuthProvider();
       await reauthenticateWithPopup(user, googleProvider);
       await deleteUser(user);
       navigate("/");
+      toast.success("Successfully deleted Google user.");
+      return;
     }
 
-    // handle email user
-    if (isEmailUser) {
+    // Handle GitHub user
+    if (providerId === "github.com") {
+      const githubProvider = new GithubAuthProvider();
+      await reauthenticateWithPopup(user, githubProvider);
+      await deleteUser(user);
+      navigate("/");
+      toast.success("Successfully deleted GitHub user.");
+      return;
+    }
+
+    // Handle email user
+    if (providerId === "password") {
       if (!password || password === "") {
         toast.warning("Please enter your password");
         return;
@@ -40,8 +53,10 @@ export const deleteUserAccount = async (
       await reauthenticateWithCredential(user, credential);
       await deleteUser(user);
       navigate("/");
-      toast.success("Successfully delete user.");
+      toast.success("Successfully deleted email user.");
+      return;
     }
+
   } catch (error) {
     if (error instanceof FirebaseError) {
       firebaseAuthErrorMessage(error);

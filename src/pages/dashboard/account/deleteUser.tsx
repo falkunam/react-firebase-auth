@@ -18,6 +18,8 @@ const DeleteUser = () => {
     (provider) => provider.providerId === "google.com"
   );
 
+   const providerData = auth?.currentUser?.providerData || [];
+
   return (
     <div className="space-y-12">
       <div className="grid grid-cols-1 gap-x-8 gap-y-10 border-b  pb-12 md:grid-cols-2">
@@ -35,32 +37,35 @@ const DeleteUser = () => {
             />
           </div>
           <Modal open={open} onClose={() => setOpen(false)}>
-            {isEmailUser && (
-              <div className="flex flex-col gap-4 mt-5">
-                <Input
-                  label="Password"
-                  name="password"
-                  value={password}
-                  onChange={setPassword}
-                />
-                <Button
-                  text="Confirm delete"
-                  type="button"
-                  handleClick={() => deleteUserAccount(navigate, true, false, password)}
-                />
-              </div>
-            )}
-            {isGoogleUser && (
-              <div className="flex flex-col gap-4 mt-5">
-                <Button
-                  text="Confirm delete"
-                  type="button"
-                  handleClick={() =>
-                    deleteUserAccount(navigate, false, true, password)
-                  }
-                />
-              </div>
-            )}
+            {providerData.map((provider) => {
+              if (provider.providerId === "password") {
+                return (
+                  <div className="flex flex-col gap-4 mt-5" key={provider.providerId}>
+                    <Input
+                      label="Password"
+                      name="password"
+                      value={password}
+                      onChange={setPassword}
+                    />
+                    <Button
+                      text="Confirm delete"
+                      type="button"
+                      handleClick={() => deleteUserAccount(navigate, provider.providerId, password)}
+                    />
+                  </div>
+                );
+              } else {
+                return (
+                  <div className="flex flex-col gap-4 mt-5" key={provider.providerId}>
+                    <Button
+                      text={`Confirm delete ${provider.providerId}`}
+                      type="button"
+                      handleClick={() => deleteUserAccount(navigate, provider.providerId)}
+                    />
+                  </div>
+                );
+              }
+            })}
           </Modal>
         </div>
       </div>

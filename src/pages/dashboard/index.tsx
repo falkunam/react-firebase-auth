@@ -12,6 +12,9 @@ const Dashboard = () => {
 
   if (!user || user === null) return <div>Not Found</div>;
 
+    const isPasswordUser = user.providerData.some(
+      (provider) => provider.providerId === "password"
+    );
   const isGoogleUser = user?.providerData[0]?.providerId === "google.com";
   const isAnonymousUser = user?.isAnonymous === true;
 
@@ -43,7 +46,7 @@ const Dashboard = () => {
       </div>
       <main className="mx-auto max-w-2xl sm:px-6 lg:px-8">
         <div className="mt-6 gap-8 flex flex-col">
-          {!isGoogleUser && (
+          {isPasswordUser && (
             <>
               <UpdateEmail user={user} />
               <ChangePassword />

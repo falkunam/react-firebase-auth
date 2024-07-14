@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { firebaseConfigSnippet, signInSnippet, signUpSnippet } from "./codeSnippet";
+import { firebaseConfigSnippet, googleSignInSnippet, sendSignInLinkSnippet, signInSnippet, signInWithEmailLinkSnippet, signUpSnippet } from "./codeSnippet";
 import { FaRegCopy } from "react-icons/fa";
 
 const Documentation = () => {
@@ -297,6 +297,91 @@ const Documentation = () => {
               {signInSnippet}
             </pre>
 
+          </div>
+        </section>
+
+        <section className="mb-10 pb-5 border-double border-b-4 border-slate-200" id="email-link-authentication">
+          <h2 className="text-2xl font-semibold mb-4"># Email Link Authentication:</h2>
+
+          <h3 className="font-bold mb-2">Enable Email Link Authentication</h3>
+          <ol className="list-decimal list-inside pl-3 mb-4">
+            <li>In the Firebase Console, navigate to the <strong>Authentication</strong> section.</li>
+            <li>Click on the <strong>Sign-in method</strong> tab.</li>
+            <li>Enable the <strong>Email/Password</strong> provider and click <strong>Save</strong>.</li>
+            <li>Check the <strong>Enable Email Link (passwordless sign-in)</strong> option.</li>
+          </ol>
+
+          <h3 className="font-bold mb-2">Send a Sign-In Link to the User's Email Address</h3>
+          <ol className="list-disc list-inside pl-3 mb-4">
+            <li>Create a form to collect the user's email address.</li>
+            <li>Use <code>sendSignInLinkToEmail</code> to send the email link to the provided email address.</li>
+            <li>Ensure the URL includes your app's sign-in link settings (redirect URL).</li>
+          </ol>
+          <div className="relative bg-slate-200 p-4 rounded-lg mb-4">
+            <button
+              onClick={() => copyToClipboard(sendSignInLinkSnippet)}
+              className="absolute top-4 right-4 bg-transparent text-gray-600 hover:text-gray-900"
+            >
+              <FaRegCopy size={16} />
+            </button>
+            <pre>
+              {sendSignInLinkSnippet}
+            </pre>
+          </div>
+
+          <h3 className="font-bold mb-2">Sign in the User from the Link</h3>
+          <ol className="list-disc list-inside pl-3 mb-4">
+            <li>Check if the link is a sign-in link using <code>isSignInWithEmailLink</code>.</li>
+            <li>If it is, complete the sign-in using <code>signInWithEmailLink</code>.</li>
+            <li>Optionally, prompt the user for their email address if it is not available in local storage.</li>
+          </ol>
+          <div className="relative bg-slate-200 p-4 rounded-lg mb-4">
+            <button
+              onClick={() => copyToClipboard(signInWithEmailLinkSnippet)}
+              className="absolute top-4 right-4 bg-transparent text-gray-600 hover:text-gray-900"
+            >
+              <FaRegCopy size={16} />
+            </button>
+            <pre>
+              {signInWithEmailLinkSnippet}
+            </pre>
+          </div>
+        </section>
+
+        <section className="mb-10 pb-5 border-double border-b-4 border-slate-200" id="google-authentication">
+          <h2 className="text-2xl font-semibold mb-4"># Google Authentication:</h2>
+
+          <h3 className="font-bold mb-2">Enable Google Authentication</h3>
+          <ol className="list-decimal list-inside pl-3 mb-4">
+            <li>In the Firebase Console, navigate to the <strong>Authentication</strong> section.</li>
+            <li>Click on the <strong>Sign-in method</strong> tab.</li>
+            <li>Enable the <strong>Google</strong> provider.</li>
+            <li>Configure the <strong>OAuth client ID</strong> and <strong>client secret</strong> from the Google Developer Console.</li>
+            <li>Click <strong>Save</strong>.</li>
+          </ol>
+
+          <h3 className="font-bold mb-2">Optional Configuration</h3>
+          <ul className="list-disc list-inside pl-3 mb-4">
+            <li>Set custom OAuth scopes using <code>addScope</code> to request additional permissions.</li>
+            <li>Set the preferred language for the OAuth consent screen using <code>setCustomParameters</code>.</li>
+          </ul>
+
+          <h3 className="font-bold mb-2">Sign in a user with Google</h3>
+          <ol className="list-disc list-inside pl-3 mb-4">
+            <li>Import <code>GoogleAuthProvider</code> and <code>signInWithPopup</code> from Firebase.</li>
+            <li>Create a button for Google sign-in in your React component.</li>
+            <li>Handle the Google sign-in process using <code>signInWithPopup</code>.</li>
+          </ol>
+          <div className="relative bg-slate-200 p-4 rounded-lg mb-4">
+            <button
+              onClick={() => copyToClipboard(googleSignInSnippet)}
+              className="absolute top-4 right-4 bg-transparent text-gray-600 hover:text-gray-900"
+            >
+              <FaRegCopy size={16} />
+            </button>
+            <pre>
+              {googleSignInSnippet}
+            </pre>
           </div>
         </section>
 

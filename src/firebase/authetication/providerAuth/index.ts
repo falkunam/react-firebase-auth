@@ -23,11 +23,6 @@ export const loginWithProvider = async (
     const result = await signInWithPopup(auth, provider);
     const user = result.user;
 
-    if (user.emailVerified === false) {
-      toast.error("Please verify your email to login.");
-      return;
-    }
-
     navigate("/dashboard");
     toast.success("Signed in successfully:");
 
