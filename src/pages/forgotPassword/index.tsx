@@ -3,7 +3,7 @@ import Button from "../../components/Button";
 import Input from "../../components/Input";
 import { Link, useNavigate } from "react-router-dom";
 import Typography from "../../components/Typography";
-import { forgotPassword } from "../../firebase/authetication/passwordAuth";
+import { forgotPassword } from "../../firebase/authentication/passwordAuth";
 
 const ForgotPassword = () => {
   const navigate = useNavigate();

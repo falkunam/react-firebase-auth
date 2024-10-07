@@ -1,7 +1,7 @@
 import { useAuthState } from "react-firebase-hooks/auth";
 import { useNavigate } from "react-router-dom";
 import { auth } from "../../firebase/config";
-import { signOutUser } from "../../firebase/authetication/userAuth";
+import { signOutUser } from "../../firebase/authentication/userAuth";
 
 const Header = () => {
   const [user] = useAuthState(auth);

@@ -3,7 +3,7 @@ import Button from "../../components/Button";
 import Input from "../../components/Input";
 import { useState } from "react";
 import Typography from "../../components/Typography";
-import { registerUser } from "../../firebase/authetication/emailAuth";
+import { registerUser } from "../../firebase/authentication/emailAuth";
 
 const SignUp = () => {
   const navigate = useNavigate();

@@ -3,7 +3,7 @@ import Button from "../../components/Button";
 import { Link, useNavigate } from "react-router-dom";
 import Input from "../../components/Input";
 import { auth } from "../../firebase/config";
-import { codeVerification, signInWithPhoneAuth } from "../../firebase/authetication/phoneAuth";
+import { codeVerification, signInWithPhoneAuth } from "../../firebase/authentication/phoneAuth";
 
 const PhoneNumber = () => {
   const navigate = useNavigate();

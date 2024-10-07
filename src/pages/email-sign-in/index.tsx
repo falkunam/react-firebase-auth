@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import Input from "../../components/Input";
 import Button from "../../components/Button";
-import { loginInWithEmailLink, sendEmailLinkAuth } from "../../firebase/authetication/emailAuth";
+import { loginInWithEmailLink, sendEmailLinkAuth } from "../../firebase/authentication/emailAuth";
 
 const EmailSignIn = () => {
   const navigate = useNavigate();

@@ -4,7 +4,7 @@ import Modal from "../../../components/Modal";
 import Input from "../../../components/Input";
 import { useNavigate } from "react-router-dom";
 import { auth } from "../../../firebase/config";
-import { deleteUserAccount } from "../../../firebase/authetication/userAuth";
+import { deleteUserAccount } from "../../../firebase/authentication/userAuth";
 
 const DeleteUser = () => {
   const navigate = useNavigate();

@@ -21,7 +21,7 @@ import {
 } from "firebase/auth";
 import { auth } from "../../firebase/config";
 import { signInWithCustomToken } from "firebase/auth/cordova";
-import { handleSignInAnonymously, loginWithProvider } from "../../firebase/authetication/providerAuth";
+import { handleSignInAnonymously, loginWithProvider } from "../../firebase/authentication/providerAuth";
 
 interface ButtonProps {
   bgColor: string;

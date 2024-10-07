@@ -1,6 +1,6 @@
 import { useNavigate } from "react-router-dom";
 import Button from "../../../components/Button";
-import { convertAnonymousToGoogle } from "../../../firebase/authetication/providerAuth";
+import { convertAnonymousToGoogle } from "../../../firebase/authentication/providerAuth";
 
 const AnonymousUser = () => {
   const navigate = useNavigate();

@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom";
 import Button from "../../../components/Button";
 import Modal from "../../../components/Modal";
 import Input from "../../../components/Input";
-import { updateUserPassword } from "../../../firebase/authetication/passwordAuth";
+import { updateUserPassword } from "../../../firebase/authentication/passwordAuth";
 
 
 const ChangePassword = () => {

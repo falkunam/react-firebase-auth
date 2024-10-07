@@ -3,7 +3,7 @@ import { User } from "firebase/auth";
 import Button from "../../../components/Button";
 import Modal from "../../../components/Modal";
 import Input from "../../../components/Input";
-import { updateUserEmail } from "../../../firebase/authetication/emailAuth";
+import { updateUserEmail } from "../../../firebase/authentication/emailAuth";
 
 
 type UpdateEmailProps = {
