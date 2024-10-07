@@ -5,7 +5,6 @@ import Modal from "../../../components/Modal";
 import Input from "../../../components/Input";
 import { updateUserEmail } from "../../../firebase/authentication/emailAuth";
 
-
 type UpdateEmailProps = {
   user: User;
 };
@@ -15,6 +14,13 @@ const UpdateEmail: React.FC<UpdateEmailProps> = ({ user }) => {
   const [email, setEmail] = useState<string>(user?.email as string);
   const [newEmail, setNewEmail] = useState<string>("");
   const [password, setPassword] = useState<string>("");
+
+  const handleUpdate = async () => {
+    await updateUserEmail(email, newEmail, password, setOpen);
+    setEmail(user?.email as string);
+    setNewEmail("");
+    setPassword("");
+  };
 
   return (
     <div className="space-y-12">
@@ -55,7 +61,7 @@ const UpdateEmail: React.FC<UpdateEmailProps> = ({ user }) => {
               <Button
                 text="Update Email"
                 type="button"
-                handleClick={() => updateUserEmail(email, newEmail, password, setOpen)}
+                handleClick={() => handleUpdate()}
               />
             </div>
           </Modal>

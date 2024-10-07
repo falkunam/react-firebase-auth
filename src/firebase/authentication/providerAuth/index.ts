@@ -11,10 +11,6 @@ import {
 import { firebaseAuthErrorMessage } from "../../errorHandler";
 import { auth } from "../../config";
 
-// const savePendingCred = (credential: AuthCredential) => {
-//     sessionStorage.setItem("pendingCred", JSON.stringify(credential));
-// };
-
 export const loginWithProvider = async (
   navigate: NavigateFunction,
   provider: AuthProvider
@@ -22,6 +18,11 @@ export const loginWithProvider = async (
   try {
     const result = await signInWithPopup(auth, provider);
     const user = result.user;
+
+    // if (user.emailVerified === false) {
+    //   toast.error("Please verify your email to login.");
+    //   return;
+    // }
 
     navigate("/dashboard");
     toast.success("Signed in successfully:");

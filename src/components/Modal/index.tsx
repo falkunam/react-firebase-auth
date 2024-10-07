@@ -1,4 +1,3 @@
-// Modal.js
 import React, { ReactNode } from "react";
 import { IoMdClose } from "react-icons/io";
 

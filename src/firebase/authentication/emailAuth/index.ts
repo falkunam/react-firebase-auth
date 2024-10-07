@@ -35,7 +35,7 @@ export const registerUser = async (
     alert(
       `A verification email has been sent to your email address ${name}!. Please verify your email to login.`
     );
-    navigate("/dashboard");
+    navigate("/sign-in");
   } catch (error) {
     if (error instanceof FirebaseError) {
       firebaseAuthErrorMessage(error);
@@ -127,15 +127,7 @@ export const loginInWithEmailLink = async (navigate: NavigateFunction) => {
     try {
       await signInWithEmailLink(auth, email, window.location.href);
      
-      // if (auth.currentUser === null) return;
-      // const credential = EmailAuthProvider.credentialWithLink(
-      //   email,
-      //   window.location.href
-      // );
-      // await reauthenticateWithCredential(auth.currentUser, credential);
-
-      // await linkWithCredential(currentUser, credential)
-      // window.localStorage.removeItem("emailForSignIn");
+      window.localStorage.removeItem("emailForSignIn");
       navigate("/dashboard");
       toast.success("Successfully reauthenticated with email link.");
     } catch (error) {
